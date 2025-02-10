@@ -140,6 +140,7 @@ psplash_main (PSplashFB *fb, int pipe_fd, int timeout)
 {
   int            err;
   ssize_t        length = 0;
+  ssize_t        ret = 0;
   fd_set         descriptors;
   struct timeval tv;
   char          *end;
@@ -170,15 +171,16 @@ psplash_main (PSplashFB *fb, int pipe_fd, int timeout)
 	  return;
 	}
       
-      length += read (pipe_fd, end, sizeof(command) - (end - command));
+      ret = read (pipe_fd, end, sizeof(command) - (end - command));
 
-      if (length == 0) 
+      if (ret <= 0)
 	{
 	  /* Reopen to see if there's anything more for us */
 	  close(pipe_fd);
 	  pipe_fd = open(PSPLASH_FIFO,O_RDONLY|O_NONBLOCK);
 	  goto out;
 	}
+      length += ret;
 
       cmd = command;
       do {
