@@ -12,7 +12,7 @@ psplash such as boot progress information.
 Contributing
 ============
 To contribute to this layer you should submit the patches for review to the
-mailing list (yocto@yoctoproject.org).
+mailing list (yocto-patches@lists.yoctoproject.org).
 
 Please refer to
     http://openembedded.org/wiki/Commit_Patch_Message_Guidelines
@@ -25,4 +25,4 @@ When creating patches, please use something like:
     git format-patch -M -s --subject-prefix='psplash][PATCH' origin
 
 When sending patches, please use something like:
-    git send-email --to yocto@lists.yoctoproject.org <generated patch>
+    git send-email --to yocto-patches@lists.yoctoproject.org <generated patch>
