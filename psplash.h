@@ -37,7 +37,10 @@
 
 typedef uint8_t  uint8;
 typedef uint16_t uint16;
+
+#if defined __STDC__ && defined __STDC_VERSION__ && __STDC_VERSION__ <= 201710L
 typedef int            bool;
+#endif
 
 #ifndef FALSE
 #define FALSE 0
