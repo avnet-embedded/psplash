@@ -47,9 +47,9 @@ AS_IF([test "x$enable_progress_bar" = "xno"], [
 
 AC_ARG_ENABLE([img-fullscreen],
     AS_HELP_STRING([--enable-img-fullscreen], [Enable the logo image in fullscreen mode)]),
-    [img_fullscreen=true],
-    [img_fullscreen=false])
-AS_IF([test x$img_fullscreen = xtrue], [
+    [enable_img_fullscreen=$enableval],
+    [enable_img_fullscreen=no])
+AS_IF([test "x$enable_img_fullscreen" = "xyes"], [
     EXTRA_GCC_FLAGS="$EXTRA_GCC_FLAGS -DPSPLASH_IMG_FULLSCREEN=1"
 ])
 
