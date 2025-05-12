@@ -31,17 +31,17 @@ AC_SUBST([FONT_NAME])
 
 AC_ARG_ENABLE([startup-msg],
     AS_HELP_STRING([--disable-startup-msg], [Disable text banner output on startup]),
-    [disable_startup_msg=true],
-    [disable_startup_msg=false])
-AS_IF([test x$disable_startup_msg = xtrue], [
+    [enable_startup_msg=$enableval],
+    [enable_startup_msg=yes])
+AS_IF([test "x$enable_startup_msg" = "xno"], [
     EXTRA_GCC_FLAGS="$EXTRA_GCC_FLAGS -DPSPLASH_DISABLE_STARTUP_MSG"
 ])
 
 AC_ARG_ENABLE([progress-bar],
     AS_HELP_STRING([--disable-progress-bar], [Disable progress bar]),
-    [disable_progress_bar=true],
-    [disable_progress_bar=false])
-AS_IF([test x$disable_progress_bar = xtrue], [
+    [enable_progress_bar=$enableval],
+    [enable_progress_bar=yes])
+AS_IF([test "x$enable_progress_bar" = "xno"], [
     EXTRA_GCC_FLAGS="$EXTRA_GCC_FLAGS -DPSPLASH_DISABLE_PROGRESS_BAR"
 ])
 
